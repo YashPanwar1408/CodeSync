@@ -1,36 +1,109 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+Sure! Here's your complete `README.md` file with everything in one place, formatted and ready to copy:
 
-## Getting Started
+---
 
-First, run the development server:
+````markdown
+# 🧑‍💻 CodeSync - Video Calling Interview Platform
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+**CodeSync** is a real-time video calling platform designed for remote technical interviews. It enables interviewers and candidates to join virtual meetings, solve DSA (Data Structures and Algorithms) questions collaboratively, and interact seamlessly through video, audio, and code-sharing.
+
+---
+
+## 🚀 Features
+
+- 🔗 Interviewer and Candidate join via unique meeting links
+- 🎥 High-quality video and audio calling
+- 🧠 Real-time DSA question solving interface (collaborative code editor)
+- 📝 Comment system for feedback and notes
+- 📅 Schedule and manage interviews
+- 🔐 Authentication and role-based access
+- 📹 Record and review interviews
+- 🎨 Clean, modern UI with dark/light mode
+
+---
+
+## 🛠️ Tech Stack
+
+- **Frontend**: Next.js, TypeScript, Tailwind CSS
+- **Backend**: Convex (serverless functions and database)
+- **Video SDK**: [Stream SDK / Daily / LiveKit (mention actual used SDK)]
+- **Authentication**: Clerk
+- **Code Editor**: Monaco Editor / CodeMirror (mention actual one)
+- **Deployment**: Vercel
+
+---
+
+## 📦 Installation
+
+1. **Clone the repository**
+   ```bash
+   git clone https://github.com/YashPanwar1408/CodeSync.git
+   cd codesync
+````
+
+2. **Install dependencies**
+
+   ```bash
+   npm install
+   ```
+
+3. **Configure environment variables**
+
+   * Create a `.env.local` file based on `.env.example`
+   * Add your API keys for:
+
+     * Clerk
+     * Convex
+     * Stream SDK / Daily / LiveKit (whichever used)
+
+4. **Run the development server**
+
+   ```bash
+   npm run dev
+   ```
+
+5. **Open your browser**
+
+   ```
+   http://localhost:3000
+   ```
+
+---
+
+## 🧪 Use Case
+
+1. **Interviewer** logs in and schedules or starts a new meeting.
+2. **Candidate** joins via a shared meeting link.
+3. Both users interact via video and collaborative code editor.
+4. DSA problems are solved in real-time with live feedback.
+5. Optional: Interviews can be recorded and reviewed later.
+
+---
+
+## 📂 Project Structure
+
+```
+/src
+  /app               # Routing and pages
+  /components        # UI and shared components
+  /hooks             # Custom React hooks
+  /actions           # Convex server actions
+  /lib               # Utility functions
+  /constants         # Static data and config
+  /providers         # Context providers (Theme, Auth, etc.)
+/convex              # Backend functions and schema
+/public              # Static assets
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+---
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## 🧑‍🔧 Contributing
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+Pull requests are welcome! For major changes, please open an issue first to discuss what you'd like to improve.
 
-## Learn More
+---
 
-To learn more about Next.js, take a look at the following resources:
+## 📬 Contact
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+Made with ❤️ by [Yash Panwar](https://github.com/YashPanwar1408)
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
