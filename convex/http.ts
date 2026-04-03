@@ -47,6 +47,15 @@ http.route({
     if (eventType === "user.created") {
       const { id, email_addresses, first_name, last_name, image_url } = evt.data;
 
+      const unsafeMetadata = (evt.data as any).unsafe_metadata as
+        | Record<string, unknown>
+        | undefined;
+      const publicMetadata = (evt.data as any).public_metadata as
+        | Record<string, unknown>
+        | undefined;
+      const rawRole = unsafeMetadata?.role ?? publicMetadata?.role;
+      const role = rawRole === "interviewer" || rawRole === "candidate" ? rawRole : undefined;
+
       const email = email_addresses[0].email_address;
       const name = `${first_name || ""} ${last_name || ""}`.trim();
 
@@ -56,6 +65,7 @@ http.route({
           email,
           name,
           image: image_url,
+          role,
         });
       } catch (error) {
         console.log("Error creating user:", error);

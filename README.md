@@ -62,6 +62,12 @@ Sure! Here's your complete `README.md` file with everything in one place, format
    npm run dev
    ```
 
+   If you hit a Next.js dev crash like `Cannot find module './<number>.js'` from `.next/server/webpack-runtime.js`, stop any other running `next` processes and run:
+
+   ```bash
+   npm run dev:clean
+   ```
+
 5. **Open your browser**
 
    ```

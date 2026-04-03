@@ -12,10 +12,10 @@ import LoaderUI from "@/components/LoaderUI";
 import { Loader2Icon } from "lucide-react";
 import MeetingCard from "@/components/MeetingCard";
 
-export default function Home() {
+export default function HomePage() {
   const router = useRouter();
 
-  const { isInterviewer, isCandidate, isLoading } = useUserRole();
+  const { isInterviewer, isLoading } = useUserRole();
   const interviews = useQuery(api.interviews.getMyInterviews);
   const [showModal, setShowModal] = useState(false);
   const [modalType, setModalType] = useState<"start" | "join">();
@@ -39,7 +39,6 @@ export default function Home() {
 
   return (
     <div className="container max-w-7xl mx-auto p-6">
-      {/* WELCOME SECTION */}
       <div className="rounded-lg bg-card p-6 border shadow-sm mb-10">
         <h1 className="text-4xl font-bold bg-gradient-to-r from-emerald-600 to-teal-500 bg-clip-text text-transparent">
           Welcome back!

@@ -13,7 +13,9 @@ export const streamTokenProvider = async () => {
     process.env.STREAM_SECRET_KEY!
   );
 
-  const token = streamClient.generateUserToken({ user_id: user.id });
+  // Mitigate minor clock skew between local/dev machines and Stream by issuing tokens slightly in the past.
+  const iat = Math.floor((Date.now() - 60_000) / 1000);
+  const token = streamClient.generateUserToken({ user_id: user.id, iat });
 
   return token;
 };

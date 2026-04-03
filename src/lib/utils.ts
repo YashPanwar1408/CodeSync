@@ -10,21 +10,24 @@ export function cn(...inputs: ClassValue[]) {
 type Interview = Doc<"interviews">;
 type User = Doc<"users">;
 
-export const groupInterviews = (interviews: Interview[]) => {
+type InterviewGroupKey = "succeeded" | "failed" | "completed" | "upcoming";
+type GroupedInterviews = Partial<Record<InterviewGroupKey, Interview[]>>;
+
+export const groupInterviews = (interviews?: Interview[]): GroupedInterviews => {
   if (!interviews) return {};
 
-  return interviews.reduce((acc: any, interview: Interview) => {
+  return interviews.reduce<GroupedInterviews>((acc, interview) => {
     const date = new Date(interview.startTime);
     const now = new Date();
 
     if (interview.status === "succeeded") {
-      acc.succeeded = [...(acc.succeeded || []), interview];
+      acc.succeeded = [...(acc.succeeded ?? []), interview];
     } else if (interview.status === "failed") {
-      acc.failed = [...(acc.failed || []), interview];
+      acc.failed = [...(acc.failed ?? []), interview];
     } else if (isBefore(date, now)) {
-      acc.completed = [...(acc.completed || []), interview];
+      acc.completed = [...(acc.completed ?? []), interview];
     } else if (isAfter(date, now)) {
-      acc.upcoming = [...(acc.upcoming || []), interview];
+      acc.upcoming = [...(acc.upcoming ?? []), interview];
     }
 
     return acc;
